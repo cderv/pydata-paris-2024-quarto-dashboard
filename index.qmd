@@ -130,7 +130,7 @@ quarto render notebook.qmd
 quarto render notebook.qmd --to docx
 ```
 :::
-::: {.column} 
+::: {.column}
 Live preview server:
 
 ``` bash
@@ -153,15 +153,15 @@ quarto preview notebook.qmd --to revealjs
 Quarto integrates with other tools.
 
 ::: r-stack
-![](images/screenshot-vscode-preview.png){.fragment .fade-in-then-out fragment-index="1" }
+![](images/screenshot-vscode-preview.png){.fragment .absolute .fade-in-then-out fragment-index="1" top="150px" left="0px" }
 
 ![](images/vscode-logo.png){.fragment .absolute fragment-index="1" top="0px" right="450px" width="100px"}
 
-![](images/jupyterlab-preview.png){.fragment .fade-in-then-out fragment-index="2" }
+![](images/jupyterlab-preview.png){.fragment .absolute .fade-in-then-out fragment-index="2" top="150px" left="0px" }
 
 ![](images/jupyter-logo.png){.fragment .absolute fragment-index="2" top="0px" right="300px" width="100px"}
 
-![](images/screenshot-positron.png){.fragment .fade-in-then-out fragment-index="3" }
+![](images/screenshot-positron.png){.fragment .absolute .fade-in-then-out fragment-index="3" top="150px" left="0px" }
 
 ![](images/positron-logo.png){.fragment .absolute fragment-index="3" top="0px" right="150px" width="100px"}
 
@@ -169,11 +169,11 @@ Quarto integrates with other tools.
 
 ## Quarto Workflow {#workflow-stack footer=false}
 
-::: {.r-vstack style="max-height: 95%;"}
+::: {.r-vstack}
 
-![](images/ipynb-how-it-works.png){.fragment}
+![](images/ipynb-how-it-works.png){.fragment width="70%"}
 
-![](images/qmd-how-it-works.png){.fragment}
+![](images/qmd-how-it-works.png){.fragment width="70%"}
 
 :::
 
