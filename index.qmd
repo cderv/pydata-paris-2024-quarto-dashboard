@@ -26,7 +26,7 @@ revealjs-plugins:
 <p class='subtitle'>for impactful and visual communication</p>
 ```
 
-![](images/PyData_logo.png){.absolute bottom='35px' right='100px' width='50%'}
+![](images/PyData_logo.png){.absolute bottom='35px' right='30px' width='50%'}
 
 ::: {.quarto-title-authors}
 ::: {.quarto-title-author}
@@ -51,7 +51,7 @@ Christophe Dervieux
 
 - Various Output Formats 
 
-![](images/horst_quarto_schematic.png){fig-alt="A schematic representing the multi-language input (e.g. Python, R, Observable, Julia) and multi-format output (e.g. PDF, html, Word documents, and more) versatility of Quarto." fig-align="center" height="30%"}
+![](images/horst_quarto_schematic.png){fig-alt="A schematic representing the multi-language input (e.g. Python, R, Observable, Julia) and multi-format output (e.g. PDF, html, Word documents, and more) versatility of Quarto." fig-align="center" width="60%"}
 
 ::: {.footer}
 [Artwork from "Hello, Quarto" keynote by Julia Lowndes and Mine Çetinkaya-Rundel, presented at RStudio Conference 2022. Illustrated by Allison Horst.]{.small-cap}
@@ -110,27 +110,43 @@ Commands:
   help       [command]             - Show this help or the help of a sub-command.
 ```
 
-::: {.fragment}
+## How to use Quarto?
 
-[Calling in terminal:]{.smaller}
+### Render and Preview
 
-::: {.top-pad}
 ::: {.columns}
 ::: {.column}
-``` {.bash}
-quarto render my-doc.ipynb
-quarto render my-doc.ipynb --execute
+Render to output formats:
+
+``` bash
+# ipynb notebook
+quarto render notebook.ipynb
+quarto render notebook.ipynb --execute
+quarto render notebook.ipynb --to pdf
+quarto render notebook.ipynb --to dashboard
+
+# plain text qmd
+quarto render notebook.qmd 
+quarto render notebook.qmd --to docx
 ```
 :::
 ::: {.column} 
-``` {.bash}
-# will execute and render
-quarto render my-doc.qmd
+Live preview server:
+
+``` bash
+# ipynb notebook
+quarto preview notebook.ipynb
+quarto preview notebook.ipynb --execute
+quarto preview notebook.ipynb --to revealjs
+
+# plain text qmd
+quarto preview notebook.qmd
+quarto preview notebook.qmd --to revealjs
 ```
 :::
 :::
-::: 
-:::
+
+
 
 ## How to use Quarto? {footer=false}
 
