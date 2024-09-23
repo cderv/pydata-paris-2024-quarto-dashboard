@@ -6,7 +6,7 @@ format:
     width: 1280
     height: 720
     theme: [default, reveal-style.scss]
-    footer: Follow along at <https://cderv.github.io/pydata2024-quarto-dashboard/> and <https://quarto.org>
+    footer: Follow along at <https://cderv.github.io/pydata-paris-2024-quarto-dashboard/> and <https://quarto.org>
     code-line-numbers: false
     slide-number: true
     mermaid-format: png
@@ -51,7 +51,7 @@ Christophe Dervieux
 
 - Various Output Formats 
 
-![](images/horst_quarto_schematic.png){fig-alt="A schematic representing the multi-language input (e.g. Python, R, Observable, Julia) and multi-format output (e.g. PDF, html, Word documents, and more) versatility of Quarto." fig-align="center"}
+![](images/horst_quarto_schematic.png){fig-alt="A schematic representing the multi-language input (e.g. Python, R, Observable, Julia) and multi-format output (e.g. PDF, html, Word documents, and more) versatility of Quarto." fig-align="center" height="30%"}
 
 ::: {.footer}
 [Artwork from "Hello, Quarto" keynote by Julia Lowndes and Mine Çetinkaya-Rundel, presented at RStudio Conference 2022. Illustrated by Allison Horst.]{.small-cap}
