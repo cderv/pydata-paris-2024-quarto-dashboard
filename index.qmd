@@ -308,7 +308,7 @@ Cards are arranged into **rows** and **columns**.
 
 ## Layout - Advanced {auto-animate="true" auto-animate-easing="ease-in-out"}
 
-**sidebars**, **tabsets**, and **Pages**  allow for more advanced layouts.
+**Sidebars**, **tabsets**, and **pages**  allow for more advanced layouts.
 
 ::: r-stack
 ::: {data-id="box1" auto-animate-delay="0" style="background: #72994E; width: 235px; height: 145px; margin-top: 30px; position: absolute; right: 565px; border: 3px solid #57733D;"}
@@ -344,7 +344,7 @@ Cards are arranged into **rows** and **columns**.
 ![](images\dashboards\olympics\navbar.png)
 
 ::: {style="margin-top: 0.7em;"}
-``` {.python code-line-numbers="|2|5-6|7-8|11,13"}
+``` {.python code-line-numbers="|2|4-6|7-8|11,13"}
 ---
 title: "Olympic Games"
 format: 
@@ -430,8 +430,8 @@ Sidebar content (e.g. inputs)
 ## Layout: Rows {.component-slide}
 
 ::: columns
-::: {.column style="margin-top: 65px;"}
-```` {.python .pymd}
+::: {.column}
+```` {.python code-line-numbers="|6,11"}
 ---
 title: "By Rows"
 format: dashboard
@@ -463,13 +463,13 @@ Header name can be anything.
 :::
 :::
 
-##  {.no-line background-image="images/dashboards/customer-churn.png" background-size="contain"}
+##  {.no-line background-image="images/dashboards/customer-churn.png" background-size="contain" footer=false}
 
 ## Layout: Columns {.component-slide}
 
 ::: columns
 ::: {.column style="margin-top: 40px;"}
-```` {.python code-line-numbers="|5|8,13|8-19"}
+```` {.python code-line-numbers="|4-5|8,13|8-19"}
 ---
 title: "By Columns"
 format: 
@@ -631,7 +631,7 @@ Most bronzes:
 
 ::: {.callout-tip .fragment appearance="simple"}
 
-`` `{python} str(count_most_gold_medals)` `` is an inline code syntax that is supported in Quarto to easily mix Markdown Text and computation output value.
+`` `{python} str(count_most_gold_medals)` `` is an inline code syntax that is supported in Quarto to easily mix Markdown text and computation output values.
 
 :::
 
@@ -697,10 +697,44 @@ logo-alt: "Olympics logo with multicolored circles."
 :::
 :::
 
-::: fragment
+::: footer
 Details at <https://quarto.org/docs/dashboards/theming.html>
 :::
 
+## Quarto Theme File
+
+```{.scss filename="olympicdash.scss" code-line-numbers="1-9|11-24"}
+/*-- scss:defaults --*/
+
+// colors
+
+$navbar-bg: #52515e;
+$navbar-fg: #F0F0F0;
+
+$link-color: #ae8b2d;
+$hover-color: lighten($link-color, 40%);
+
+/*-- scss:rules --*/
+.card-header {
+  background-color: #ae8b2d50;
+}
+
+.nav-item > a:hover {
+  color: #ae8b2d;
+}
+
+.nav-link {
+  color: #F0F0F0;
+}
+
+.tabset .nav-link {
+  color: #52515e;
+}
+
+.value-box {
+  text-align: center;
+}
+````
 
 
 
@@ -730,7 +764,5 @@ And about Quarto ?
 :::
 
 :::  {.fragment} 
-#### Questions?
-
-![](images/thank-you.gif){.absolute bottom="-50px" right="500px" height="200px"}
+![](images/thank-you.gif){.absolute bottom="-20px" right="500px" height="200px"}
 :::
