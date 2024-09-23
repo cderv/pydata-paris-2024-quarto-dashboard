@@ -17,6 +17,8 @@ format:
     logo: images/PyData_logo.png
 revealjs-plugins:
   - attribution
+resources: 
+  - images\ipynb-format.png
 ---
   
 ## {#title-slide .quarto-title-block .center}
@@ -236,7 +238,7 @@ with many enhancements
 
 ##  {.no-line background-image="images/dashboards/stock-explorer.png" background-size="contain" footer=false}
 
-## {.no-line background-image="images\dashboards\olympics\screenshot.png" background-size="contain" footer=false}
+##  {.no-line background-image="images/dashboards/olympics/screenshot.png" background-size="contain" footer=false}
 
 # How to build a Quarto Dashboard ? 
 
@@ -587,7 +589,7 @@ dict(value = change['amount'],
 :::
 :::
 
-## Value Boxes
+## Value Boxes {footer=false}
 
 ::: columns
 
@@ -668,9 +670,9 @@ format: dashboard
 :::
 :::
 
-##  {.no-line background-image="images\dashboards\olympics\tabsets.gif" background-size="contain" footer=false}
+##  {.no-line background-image="images/dashboards/olympics/tabsets.gif" background-size="contain" footer=false}
 
-## Styling a Dashboard
+## Styling a Dashboard {footer=false}
 
 ```{.yaml code-line-numbers="4,8-10"}
 ---
@@ -764,5 +766,5 @@ And about Quarto ?
 :::
 
 :::  {.fragment} 
-![](images/thank-you.gif){.absolute bottom="-20px" right="500px" height="200px"}
+![](images/thank-you.gif){.absolute bottom="-20px" right="600px" height="25%"}
 :::
