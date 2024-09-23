@@ -396,7 +396,7 @@
 <h2></h2>
 <h1 class="title">Quarto Dashboard</h1>
 <p class="subtitle">for impactful and visual communication</p>
-<p><img data-src="images/PyData_logo.png" class="absolute" style="bottom: 35px; right: 100px; width: 50%; "></p>
+<p><img data-src="images/PyData_logo.png" class="absolute" style="bottom: 35px; right: 30px; width: 50%; "></p>
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
@@ -417,7 +417,7 @@
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/horst_quarto_schematic.png" class="quarto-figure quarto-figure-center" style="height:30.0%" alt="A schematic representing the multi-language input (e.g. Python, R, Observable, Julia) and multi-format output (e.g. PDF, html, Word documents, and more) versatility of Quarto."></p>
+<p><img data-src="images/horst_quarto_schematic.png" class="quarto-figure quarto-figure-center" style="width:60.0%" alt="A schematic representing the multi-language input (e.g. Python, R, Observable, Julia) and multi-format output (e.g. PDF, html, Word documents, and more) versatility of Quarto."></p>
 </figure>
 </div>
 <div class="footer">
@@ -475,37 +475,51 @@
 <span id="cb1-32"><a href=""></a>  <span class="ex">publish</span>    <span class="pp">[</span><span class="ss">provider</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">path</span><span class="pp">]</span>     <span class="at">-</span> Publish a document or project to a provider.</span>
 <span id="cb1-33"><a href=""></a>  <span class="ex">check</span>      <span class="pp">[</span><span class="ss">target</span><span class="pp">]</span>              <span class="at">-</span> Verify correct functioning of Quarto installation.</span>
 <span id="cb1-34"><a href=""></a>  <span class="bu">help</span>       <span class="pp">[</span><span class="ss">command</span><span class="pp">]</span>             <span class="at">-</span> Show this help or the help of a sub-command.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="fragment">
-<p><span class="smaller">Calling in terminal:</span></p>
-<div class="top-pad">
+</section>
+<section id="how-to-use-quarto-1" class="slide level2">
+<h2>How to use Quarto?</h2>
+<h3 id="render-and-preview">Render and Preview</h3>
 <div class="columns">
 <div class="column">
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render my-doc.ipynb</span>
-<span id="cb2-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render my-doc.ipynb <span class="at">--execute</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Render to output formats:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># ipynb notebook</span></span>
+<span id="cb2-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render notebook.ipynb</span>
+<span id="cb2-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render notebook.ipynb <span class="at">--execute</span></span>
+<span id="cb2-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render notebook.ipynb <span class="at">--to</span> pdf</span>
+<span id="cb2-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render notebook.ipynb <span class="at">--to</span> dashboard</span>
+<span id="cb2-6"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># plain text qmd</span></span>
+<span id="cb2-8"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render notebook.qmd </span>
+<span id="cb2-9"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render notebook.qmd <span class="at">--to</span> docx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># will execute and render</span></span>
-<span id="cb3-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render my-doc.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Live preview server:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># ipynb notebook</span></span>
+<span id="cb3-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview notebook.ipynb</span>
+<span id="cb3-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview notebook.ipynb <span class="at">--execute</span></span>
+<span id="cb3-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview notebook.ipynb <span class="at">--to</span> revealjs</span>
+<span id="cb3-5"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># plain text qmd</span></span>
+<span id="cb3-7"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview notebook.qmd</span>
+<span id="cb3-8"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview notebook.qmd <span class="at">--to</span> revealjs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
-</div>
-</div>
 </section>
-<section id="how-to-use-quarto-1" class="slide level2" data-footer="false">
+<section id="how-to-use-quarto-2" class="slide level2" data-footer="false">
 <h2>How to use Quarto?</h2>
 <p>Quarto integrates with other tools.</p>
 <div class="r-stack">
-<p><img data-src="images/screenshot-vscode-preview.png" class="fragment fade-in-then-out" data-fragment-index="1"></p>
+<p><img data-src="images/screenshot-vscode-preview.png" class="fragment absolute fade-in-then-out" style="top: 150px; left: 0px; " data-fragment-index="1"></p>
 <p><img data-src="images/vscode-logo.png" class="fragment absolute" style="top: 0px; right: 450px; width: 100px; " data-fragment-index="1"></p>
-<p><img data-src="images/jupyterlab-preview.png" class="fragment fade-in-then-out" data-fragment-index="2"></p>
+<p><img data-src="images/jupyterlab-preview.png" class="fragment absolute fade-in-then-out" style="top: 150px; left: 0px; " data-fragment-index="2"></p>
 <p><img data-src="images/jupyter-logo.png" class="fragment absolute" style="top: 0px; right: 300px; width: 100px; " data-fragment-index="2"></p>
-<p><img data-src="images/screenshot-positron.png" class="fragment fade-in-then-out" data-fragment-index="3"></p>
+<p><img data-src="images/screenshot-positron.png" class="fragment absolute fade-in-then-out" style="top: 150px; left: 0px; " data-fragment-index="3"></p>
 <p><img data-src="images/positron-logo.png" class="fragment absolute" style="top: 0px; right: 150px; width: 100px; " data-fragment-index="3"></p>
 </div>
 </section>
 <section id="workflow-stack" class="slide level2" data-footer="false">
 <h2>Quarto Workflow</h2>
-<div class="r-vstack" style="max-height: 95%;">
-<p><img data-src="images/ipynb-how-it-works.png" class="fragment"></p>
-<p><img data-src="images/qmd-how-it-works.png" class="fragment"></p>
+<div class="r-vstack">
+<p><img data-src="images/ipynb-how-it-works.png" class="fragment" style="width:70.0%"></p>
+<p><img data-src="images/qmd-how-it-works.png" class="fragment" style="width:70.0%"></p>
 </div>
 <div class="columns">
 <div class="column fragment" style="width:30%;">
@@ -558,83 +572,44 @@ with many enhancements</p>
 <h1>Peeking at Dashboard Examples</h1>
 
 </section>
-<section id="section" class="slide level2 no-line" data-background-image="images/dashboards/customer-churn.png" data-background-size="contain">
+<section id="section" class="slide level2 no-line" data-background-image="images/dashboards/customer-churn.png" data-background-size="contain" data-footer="false">
 <h2></h2>
-<div class="footer">
-<p><a href="https://quarto.org/docs/gallery/#dashboards" class="uri">https://quarto.org/docs/gallery/#dashboards</a></p>
-</div>
 </section>
-<section id="section-1" class="slide level2 no-line" data-background-image="images/dashboards/dashing-through-snow.png" data-background-size="contain">
+<section id="section-1" class="slide level2 no-line" data-background-image="images/dashboards/dashing-through-snow.png" data-background-size="contain" data-footer="false">
 <h2></h2>
-<div class="footer">
-<p><a href="https://quarto.org/docs/gallery/#dashboards" class="uri">https://quarto.org/docs/gallery/#dashboards</a></p>
-</div>
 </section>
-<section id="section-2" class="slide level2 no-line" data-background-image="images/dashboards/earthquakes.png" data-background-size="contain">
+<section id="section-2" class="slide level2 no-line" data-background-image="images/dashboards/earthquakes.png" data-background-size="contain" data-footer="false">
 <h2></h2>
-<div class="footer">
-<p><a href="https://quarto.org/docs/gallery/#dashboards" class="uri">https://quarto.org/docs/gallery/#dashboards</a></p>
-</div>
 </section>
-<section id="section-3" class="slide level2 no-line" data-background-image="images/dashboards/gapminder.png" data-background-size="contain">
+<section id="section-3" class="slide level2 no-line" data-background-image="images/dashboards/gapminder.png" data-background-size="contain" data-footer="false">
 <h2></h2>
-<div class="footer">
-<p><a href="https://quarto.org/docs/gallery/#dashboards" class="uri">https://quarto.org/docs/gallery/#dashboards</a></p>
-</div>
 </section>
-<section id="section-4" class="slide level2 no-line" data-background-image="images/dashboards/housing-market.png" data-background-size="contain">
+<section id="section-4" class="slide level2 no-line" data-background-image="images/dashboards/housing-market.png" data-background-size="contain" data-footer="false">
 <h2></h2>
-<div class="footer">
-<p><a href="https://quarto.org/docs/gallery/#dashboards" class="uri">https://quarto.org/docs/gallery/#dashboards</a></p>
-</div>
 </section>
-<section id="section-5" class="slide level2 no-line" data-background-image="images/dashboards/labor.png" data-background-size="contain">
+<section id="section-5" class="slide level2 no-line" data-background-image="images/dashboards/labor.png" data-background-size="contain" data-footer="false">
 <h2></h2>
-<div class="footer">
-<p><a href="https://quarto.org/docs/gallery/#dashboards" class="uri">https://quarto.org/docs/gallery/#dashboards</a></p>
-</div>
 </section>
-<section id="section-6" class="slide level2 no-line" data-background-image="images/dashboards/model-card.png" data-background-size="contain">
+<section id="section-6" class="slide level2 no-line" data-background-image="images/dashboards/model-card.png" data-background-size="contain" data-footer="false">
 <h2></h2>
-<div class="footer">
-<p><a href="https://quarto.org/docs/gallery/#dashboards" class="uri">https://quarto.org/docs/gallery/#dashboards</a></p>
-</div>
 </section>
-<section id="section-7" class="slide level2 no-line" data-background-image="images/dashboards/mynorfolk.png" data-background-size="contain">
+<section id="section-7" class="slide level2 no-line" data-background-image="images/dashboards/mynorfolk.png" data-background-size="contain" data-footer="false">
 <h2></h2>
-<div class="footer">
-<p><a href="https://quarto.org/docs/gallery/#dashboards" class="uri">https://quarto.org/docs/gallery/#dashboards</a></p>
-</div>
 </section>
-<section id="section-8" class="slide level2 no-line" data-background-image="images/dashboards/nfl-injuries.png" data-background-size="contain">
+<section id="section-8" class="slide level2 no-line" data-background-image="images/dashboards/nfl-injuries.png" data-background-size="contain" data-footer="false">
 <h2></h2>
-<div class="footer">
-<p><a href="https://quarto.org/docs/gallery/#dashboards" class="uri">https://quarto.org/docs/gallery/#dashboards</a></p>
-</div>
 </section>
-<section id="section-9" class="slide level2 no-line" data-background-image="images/dashboards/retirement.png" data-background-size="contain">
+<section id="section-9" class="slide level2 no-line" data-background-image="images/dashboards/retirement.png" data-background-size="contain" data-footer="false">
 <h2></h2>
-<div class="footer">
-<p><a href="https://quarto.org/docs/gallery/#dashboards" class="uri">https://quarto.org/docs/gallery/#dashboards</a></p>
-</div>
 </section>
-<section id="section-10" class="slide level2 no-line" data-background-image="images/dashboards/shiny-penguins.png" data-background-size="contain">
+<section id="section-10" class="slide level2 no-line" data-background-image="images/dashboards/shiny-penguins.png" data-background-size="contain" data-footer="false">
 <h2></h2>
-<div class="footer">
-<p><a href="https://quarto.org/docs/gallery/#dashboards" class="uri">https://quarto.org/docs/gallery/#dashboards</a></p>
-</div>
 </section>
-<section id="section-11" class="slide level2 no-line" data-background-image="images/dashboards/stock-explorer.png" data-background-size="contain">
+<section id="section-11" class="slide level2 no-line" data-background-image="images/dashboards/stock-explorer.png" data-background-size="contain" data-footer="false">
 <h2></h2>
-<div class="footer">
-<p><a href="https://quarto.org/docs/gallery/#dashboards" class="uri">https://quarto.org/docs/gallery/#dashboards</a></p>
-</div>
 </section>
-<section id="section-12" class="slide level2 no-line" data-background-image="images\dashboards\olympics\screenshot.png" data-background-size="contain">
+<section id="section-12" class="slide level2 no-line" data-background-image="images\dashboards\olympics\screenshot.png" data-background-size="contain" data-footer="false">
 <h2></h2>
-<div class="footer">
-<p><a href="https://mine.quarto.pub/olympic-games-py/#summer-olympics" class="uri">https://mine.quarto.pub/olympic-games-py/#summer-olympics</a></p>
-</div>
 </section></section>
 <section>
 <section id="how-to-build-a-quarto-dashboard" class="title-slide slide level1 center">
@@ -712,7 +687,7 @@ with many enhancements</p>
 </section>
 <section id="layout---advanced" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
 <h2 data-id="quarto-animate-title">Layout - Advanced</h2>
-<p><strong>sidebars</strong>, <strong>tabsets</strong>, and <strong>Pages</strong> allow for more advanced layouts.</p>
+<p><strong>Sidebars</strong>, <strong>tabsets</strong>, and <strong>pages</strong> allow for more advanced layouts.</p>
 <div class="r-stack">
 <div data-id="box1" data-auto-animate-delay="0" style="background: #72994E; width: 235px; height: 145px; margin-top: 30px; position: absolute; right: 565px; border: 3px solid #57733D;">
 
@@ -746,7 +721,7 @@ with many enhancements</p>
 <h2>Navigation Bar and Pages</h2>
 
 <img data-src="images\dashboards\olympics\navbar.png" class="r-stretch"><div style="margin-top: 0.7em;">
-<div class="sourceCode" id="cb6" data-code-line-numbers="|2|5-6|7-8|11,13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="op">---</span></span>
+<div class="sourceCode" id="cb6" data-code-line-numbers="|2|4-6|7-8|11,13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="op">---</span></span>
 <span id="cb6-2"><a href=""></a>title: <span class="st">"Olympic Games"</span></span>
 <span id="cb6-3"><a href=""></a><span class="bu">format</span>: </span>
 <span id="cb6-4"><a href=""></a>  dashboard:</span>
@@ -820,24 +795,24 @@ with many enhancements</p>
 <section id="layout-rows" class="slide level2 component-slide">
 <h2>Layout: Rows</h2>
 <div class="columns">
-<div class="column" style="margin-top: 65px;">
-<div class="sourceCode" id="cb9"><pre class="sourceCode python pymd code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
-<span id="cb9-2"><a href="" aria-hidden="true" tabindex="-1"></a>title: <span class="st">"By Rows"</span></span>
-<span id="cb9-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="bu">format</span>: dashboard</span>
-<span id="cb9-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
-<span id="cb9-5"><a href="" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb9-6"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">## Row {height=70%}</span></span>
-<span id="cb9-7"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb9-9"><a href="" aria-hidden="true" tabindex="-1"></a>```</span>
-<span id="cb9-10"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-11"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">## Row {height=30%}</span></span>
-<span id="cb9-12"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-13"><a href="" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb9-14"><a href="" aria-hidden="true" tabindex="-1"></a>```</span>
-<span id="cb9-15"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-16"><a href="" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb9-17"><a href="" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="column">
+<div class="sourceCode" id="cb9" data-code-line-numbers="|6,11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="op">---</span></span>
+<span id="cb9-2"><a href=""></a>title: <span class="st">"By Rows"</span></span>
+<span id="cb9-3"><a href=""></a><span class="bu">format</span>: dashboard</span>
+<span id="cb9-4"><a href=""></a><span class="op">---</span></span>
+<span id="cb9-5"><a href=""></a>    </span>
+<span id="cb9-6"><a href=""></a><span class="co">## Row {height=70%}</span></span>
+<span id="cb9-7"><a href=""></a></span>
+<span id="cb9-8"><a href=""></a>```{python}</span>
+<span id="cb9-9"><a href=""></a>```</span>
+<span id="cb9-10"><a href=""></a></span>
+<span id="cb9-11"><a href=""></a><span class="co">## Row {height=30%}</span></span>
+<span id="cb9-12"><a href=""></a></span>
+<span id="cb9-13"><a href=""></a>```{python}</span>
+<span id="cb9-14"><a href=""></a>```</span>
+<span id="cb9-15"><a href=""></a></span>
+<span id="cb9-16"><a href=""></a>```{python}</span>
+<span id="cb9-17"><a href=""></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-note callout-style-simple">
 <div class="callout-body">
 <div class="callout-icon-container">
@@ -853,14 +828,14 @@ Header name can be anything.</p>
 <p><img data-src="images\dashboards\chart-focal-top.png" style="width:90.0%"></p>
 </div></div>
 </section>
-<section id="section-14" class="slide level2 no-line" data-background-image="images/dashboards/customer-churn.png" data-background-size="contain">
+<section id="section-14" class="slide level2 no-line" data-background-image="images/dashboards/customer-churn.png" data-background-size="contain" data-footer="false">
 <h2></h2>
 </section>
 <section id="layout-columns" class="slide level2 component-slide">
 <h2>Layout: Columns</h2>
 <div class="columns">
 <div class="column" style="margin-top: 40px;">
-<div class="sourceCode" id="cb10" data-code-line-numbers="|5|8,13|8-19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="op">---</span></span>
+<div class="sourceCode" id="cb10" data-code-line-numbers="|4-5|8,13|8-19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="op">---</span></span>
 <span id="cb10-2"><a href=""></a>title: <span class="st">"By Columns"</span></span>
 <span id="cb10-3"><a href=""></a><span class="bu">format</span>: </span>
 <span id="cb10-4"><a href=""></a>  dashboard:</span>
@@ -1005,7 +980,7 @@ Header name can be anything.</p>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-content">
-<p><code>`{python} str(count_most_gold_medals)`</code> is an inline code syntax that is supported in Quarto to easily mix Markdown Text and computation output value.</p>
+<p><code>`{python} str(count_most_gold_medals)`</code> is an inline code syntax that is supported in Quarto to easily mix Markdown text and computation output values.</p>
 </div>
 </div>
 </div>
@@ -1062,8 +1037,46 @@ Header name can be anything.</p>
 </div><div class="column fragment">
 <p><strong>Customization through Quarto themes files</strong>: Based on SASS, an easy way to declare new themes or variations to be layered into SCSS to be compiled to CSS</p>
 </div></div>
-<div class="fragment">
+<div class="footer">
 <p>Details at <a href="https://quarto.org/docs/dashboards/theming.html" class="uri">https://quarto.org/docs/dashboards/theming.html</a></p>
+</div>
+</section>
+<section id="quarto-theme-file" class="slide level2">
+<h2>Quarto Theme File</h2>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>olympicdash.scss</strong></pre>
+</div>
+<div class="sourceCode" id="cb16" data-filename="olympicdash.scss" data-code-line-numbers="1-9|11-24"><pre class="sourceCode numberSource scss number-lines code-with-copy"><code class="sourceCode scss"><span id="cb16-1"><a href=""></a><span class="co">/*-- scss:defaults --*/</span></span>
+<span id="cb16-2"><a href=""></a></span>
+<span id="cb16-3"><a href=""></a><span class="co">// colors</span></span>
+<span id="cb16-4"><a href=""></a></span>
+<span id="cb16-5"><a href=""></a><span class="va">$navbar-bg</span>: <span class="cn">#52515e</span><span class="op">;</span></span>
+<span id="cb16-6"><a href=""></a><span class="va">$navbar-fg</span>: <span class="cn">#F0F0F0</span><span class="op">;</span></span>
+<span id="cb16-7"><a href=""></a></span>
+<span id="cb16-8"><a href=""></a><span class="va">$link-color</span>: <span class="cn">#ae8b2d</span><span class="op">;</span></span>
+<span id="cb16-9"><a href=""></a><span class="va">$hover-color</span>: <span class="fu">lighten(</span><span class="va">$link-color</span><span class="op">,</span> <span class="dv">40</span><span class="dt">%</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb16-10"><a href=""></a></span>
+<span id="cb16-11"><a href=""></a><span class="co">/*-- scss:rules --*/</span></span>
+<span id="cb16-12"><a href=""></a><span class="fu">.card-header</span> {</span>
+<span id="cb16-13"><a href=""></a>  <span class="kw">background-color</span>: <span class="cn">#ae8b2d50</span><span class="op">;</span></span>
+<span id="cb16-14"><a href=""></a>}</span>
+<span id="cb16-15"><a href=""></a></span>
+<span id="cb16-16"><a href=""></a><span class="fu">.nav-item</span> <span class="op">&gt;</span> a<span class="in">:hover</span> {</span>
+<span id="cb16-17"><a href=""></a>  <span class="kw">color</span>: <span class="cn">#ae8b2d</span><span class="op">;</span></span>
+<span id="cb16-18"><a href=""></a>}</span>
+<span id="cb16-19"><a href=""></a></span>
+<span id="cb16-20"><a href=""></a><span class="fu">.nav-link</span> {</span>
+<span id="cb16-21"><a href=""></a>  <span class="kw">color</span>: <span class="cn">#F0F0F0</span><span class="op">;</span></span>
+<span id="cb16-22"><a href=""></a>}</span>
+<span id="cb16-23"><a href=""></a></span>
+<span id="cb16-24"><a href=""></a><span class="fu">.tabset</span> <span class="fu">.nav-link</span> {</span>
+<span id="cb16-25"><a href=""></a>  <span class="kw">color</span>: <span class="cn">#52515e</span><span class="op">;</span></span>
+<span id="cb16-26"><a href=""></a>}</span>
+<span id="cb16-27"><a href=""></a></span>
+<span id="cb16-28"><a href=""></a><span class="fu">.value-box</span> {</span>
+<span id="cb16-29"><a href=""></a>  <span class="kw">text-align</span>: <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb16-30"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="learning-more" class="slide level2">
@@ -1089,8 +1102,7 @@ Header name can be anything.</p>
 </ul>
 </div></div>
 <div class="fragment">
-<h4 id="questions">Questions?</h4>
-<p><img data-src="images/thank-you.gif" class="absolute" style="bottom: -50px; right: 500px; height: 200px; "></p>
+<p><img data-src="images/thank-you.gif" class="absolute" style="bottom: -20px; right: 500px; height: 200px; "></p>
 </div>
 
 </section></section>
