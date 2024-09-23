@@ -1,0 +1,772 @@
+---
+pagetitle: Quarto Dashsboard - PyData2024
+date: 09/25/2024
+format:
+  clean-revealjs:
+    width: 1280
+    height: 720
+    theme: [default, reveal-style.scss]
+    footer: Follow along at <https://cderv.github.io/pydata2024-quarto-dashboard/> and <https://quarto.org>
+    code-line-numbers: false
+    slide-number: true
+    mermaid-format: png
+    preview-links: auto
+    multiplex: false
+    include-after-body: 
+      - revealjs-tweak.html
+    logo: images/PyData_logo.png
+revealjs-plugins:
+  - attribution
+---
+  
+## {#title-slide .quarto-title-block .center}
+
+```{=html}
+<h1 class='title'>Quarto Dashboard</h1>
+<p class='subtitle'>for impactful and visual communication</p>
+```
+
+![](images/PyData_logo.png){.absolute bottom='35px' right='100px' width='50%'}
+
+::: {.quarto-title-authors}
+::: {.quarto-title-author}
+::: {.quarto-title-author-name}
+Christophe Dervieux
+`<p class="quarto-title-affiliation">Posit PBC</p>`{=html}
+:::
+:::
+:::
+
+{{< meta date >}}
+
+## What is Quarto?
+
+**An open-source, scientific and technical publishing system**
+
+*Building on standard Markdown with features essential for scientific communication*
+
+- Extended Pandoc Markdown for textual content
+
+- Multi-engine support for configurable computations
+
+- Various Output Formats 
+
+![[Artwork from "Hello, Quarto" keynote by Julia Lowndes and Mine Çetinkaya-Rundel, presented at RStudio Conference 2022. Illustrated by Allison Horst.]{.small-cap}](images/horst_quarto_schematic.png){fig-alt="A schematic representing the multi-language input (e.g. Python, R, Observable, Julia) and multi-format output (e.g. PDF, html, Word documents, and more) versatility of Quarto." fig-align="center"}
+
+::: notes
+
+:::
+
+## With Quarto ...
+
+you can **weave** together **narrative** and **code** to produce elegantly formatted output as documents, web pages, blog posts, books and more...
+
+[Which includes...]{.fragment fragment-index=1} [**Dashboards**]{.fragment fragment-index=2}
+
+::: {.fragment fragment-index=2}
+![](images/quarto-to-dashboard.png){fig-alt="A schematic representing the multi-language input (e.g. Python, R, Observable, Julia) and dashboard output." fig-align="center"}
+:::
+
+## How to use Quarto?
+
+::: make-smaller
+Quarto is a [command line interface (CLI)]{.hl} that renders Jupyter notebook (`.ipynb`) or plain text formats (`.qmd`, `.md`) into reports (PDF, Word, HTML ...), books, websites, presentations (Revealjs, Powerpoint, ...) and more.
+:::
+
+``` {.bash .make-smaller code-line-numbers="|1|4|17|18|20-25"}
+$ quarto --help
+
+Usage:   quarto
+Version: 1.5.57
+
+Description: 
+
+  Quarto CLI
+
+Options:
+
+  -h, --help     - Show this help.
+  -V, --version  - Show the version number for this program.
+
+Commands:
+
+  render     [input] [args...]     - Render files or projects to various document types.
+  preview    [file] [args...]      - Render and preview a document or website project.
+  serve      [input]               - Serve a Shiny interactive document.
+  create     [type] [commands...]  - Create a Quarto project or extension
+  use        <type> [target]       - Automate document or project setup tasks.
+  add        <extension>           - Add an extension to this folder or project
+  update     [target...]           - Updates an extension or global dependency.
+  remove     [target...]           - Removes an extension.
+  convert    <input>               - Convert documents to alternate representations.
+  pandoc     [args...]             - Run the version of Pandoc embedded within Quarto.
+  typst      [args...]             - Run the version of Typst embedded within Quarto.
+  run        [script] [args...]    - Run a TypeScript, R, Python, or Lua script.
+  install    [target...]           - Installs a global dependency (TinyTex or Chromium).
+  uninstall  [tool]                - Removes an extension.
+  tools                            - Display the status of Quarto installed dependencies
+  publish    [provider] [path]     - Publish a document or project to a provider.
+  check      [target]              - Verify correct functioning of Quarto installation.
+  help       [command]             - Show this help or the help of a sub-command.
+```
+
+::: {.fragment}
+
+[Calling in terminal:]{.smaller}
+
+::: {.top-pad}
+::: {.columns}
+::: {.column}
+``` {.bash}
+quarto render my-doc.ipynb
+quarto render my-doc.ipynb --execute
+```
+:::
+::: {.column} 
+``` {.bash}
+# will execute and render
+quarto render my-doc.qmd
+```
+:::
+:::
+::: 
+:::
+
+## How to use Quarto? {footer=false}
+
+Quarto integrates with other tools.
+
+::: r-stack
+![](images/screenshot-vscode-preview.png){.fragment .fade-in-then-out fragment-index="1" }
+
+![](images/vscode-logo.png){.fragment .absolute fragment-index="1" top="0px" right="450px" width="100px"}
+
+![](images/jupyterlab-preview.png){.fragment .fade-in-then-out fragment-index="2" }
+
+![](images/jupyter-logo.png){.fragment .absolute fragment-index="2" top="0px" right="300px" width="100px"}
+
+![](images/screenshot-positron.png){.fragment .fade-in-then-out fragment-index="3" }
+
+![](images/positron-logo.png){.fragment .absolute fragment-index="3" top="0px" right="150px" width="100px"}
+
+:::
+
+## Quarto Workflow {#workflow-stack footer=false}
+
+::: {.r-vstack style="max-height: 95%;"}
+
+![](images/ipynb-how-it-works.png){.fragment}
+
+![](images/qmd-how-it-works.png){.fragment}
+
+:::
+
+::: columns
+
+::: {.column width="30%" .fragment}
+**Computations:** [Jupyter](https://jupyter.org) (and [Knitr](https://yihui.name/knitr/) and [ObservableJS](https://observablehq.com/@observablehq/observable-javascript))
+:::
+
+::: {.column width="40%" .fragment}
+**Markdown:** [Pandoc](https://pandoc.org)\
+with many enhancements
+:::
+
+::: {.column width="30%" .fragment}
+**Output:** Documents, presentations, websites, books, blogs, ...
+:::
+
+:::
+
+## Render Notebook to HTML (default options) {.demo}
+
+{{< demo basics >}}
+
+## Render Notebook to HTML (document level options) {.demo}
+
+{{< demo doc-options >}}
+
+## Render Notebook to HTML (document and cell level options) {.demo}
+
+{{< demo cell-options >}}
+
+## Render Notebook to Revealjs [--- <https://quarto.org/docs/presentations/revealjs/>]{.web} {.demo}
+
+{{< demo presentation >}}
+
+# Peeking at Dashboard Examples
+
+##  {.no-line background-image="images/dashboards/customer-churn.png" background-size="contain"}
+
+::: {.footer}
+<https://quarto.org/docs/gallery/#dashboards>
+:::
+
+##  {.no-line background-image="images/dashboards/dashing-through-snow.png" background-size="contain"}
+
+::: {.footer}
+<https://quarto.org/docs/gallery/#dashboards>
+:::
+
+##  {.no-line background-image="images/dashboards/earthquakes.png" background-size="contain"}
+
+::: {.footer}
+<https://quarto.org/docs/gallery/#dashboards>
+:::
+
+##  {.no-line background-image="images/dashboards/gapminder.png" background-size="contain"}
+
+::: {.footer}
+<https://quarto.org/docs/gallery/#dashboards>
+:::
+
+##  {.no-line background-image="images/dashboards/housing-market.png" background-size="contain"}
+
+::: {.footer}
+<https://quarto.org/docs/gallery/#dashboards>
+:::
+
+##  {.no-line background-image="images/dashboards/labor.png" background-size="contain"}
+
+::: {.footer}
+<https://quarto.org/docs/gallery/#dashboards>
+:::
+
+##  {.no-line background-image="images/dashboards/model-card.png" background-size="contain"}
+
+::: {.footer}
+<https://quarto.org/docs/gallery/#dashboards>
+:::
+
+##  {.no-line background-image="images/dashboards/mynorfolk.png" background-size="contain"}
+
+::: {.footer}
+<https://quarto.org/docs/gallery/#dashboards>
+:::
+
+##  {.no-line background-image="images/dashboards/nfl-injuries.png" background-size="contain"}
+
+::: {.footer}
+<https://quarto.org/docs/gallery/#dashboards>
+:::
+
+##  {.no-line background-image="images/dashboards/retirement.png" background-size="contain"}
+
+::: {.footer}
+<https://quarto.org/docs/gallery/#dashboards>
+:::
+
+##  {.no-line background-image="images/dashboards/shiny-penguins.png" background-size="contain"}
+
+::: {.footer}
+<https://quarto.org/docs/gallery/#dashboards>
+:::
+
+##  {.no-line background-image="images/dashboards/stock-explorer.png" background-size="contain"}
+
+::: {.footer}
+<https://quarto.org/docs/gallery/#dashboards>
+:::
+
+## {.no-line background-image="images\dashboards\olympics\screenshot.png" background-size="contain"}
+
+::: {.footer}
+<https://mine.quarto.pub/olympic-games-py/#summer-olympics>
+:::
+
+# How to build a Quarto Dashboard ? 
+
+## Notebook ➝ HTML {auto-animate=true}
+
+``` {.markdown filename="olympicdash-py.qmd" style="overflow-y: hidden" code-line-numbers="|3"}
+---
+title: "Olympic Games"
+format: html
+---
+
+# notebook content goes here...
+```
+
+::: ipynb-box
+![](images/ipynb-examples/empty-html-report.png)
+:::
+
+## Notebook ➝ Dashboard {auto-animate=true}
+
+``` {.markdown filename="olympicdash-py.qmd" style="overflow-y: hidden" code-line-numbers="|3"}
+---
+title: "Olympic Games"
+format: dashboard
+---
+
+# notebook content goes here...
+```
+
+::: ipynb-box
+![](images/ipynb-examples/empty-dashboard-report.png)
+:::
+
+## Layout {auto-animate="true" auto-animate-easing="ease-in-out"}
+
+## Layout - Cards {auto-animate="true" auto-animate-easing="ease-in-out"}
+
+Dashboards are composed of **cards**.
+
+::: r-hstack
+::: {data-id="box1" auto-animate-delay="0" style="background: #72994E; width: 200px; height: 150px; margin: 10px; border: 3px solid #57733D;"}
+:::
+
+::: {data-id="box2" auto-animate-delay="0.1" style="background: #F2F2F2; width: 200px; height: 150px; margin: 10px; border: 3px solid #C2C2C4;"}
+:::
+
+::: {data-id="box3" auto-animate-delay="0.2" style="background: #419599; width: 200px; height: 150px; margin: 10px; border: 3px solid #297075;"}
+:::
+:::
+
+## Layout - Rows and columns {auto-animate="true" auto-animate-easing="ease-in-out"}
+
+Cards are arranged into **rows** and **columns**.
+
+::: test
+
+::: r-stack
+::: {data-id="box1" auto-animate-delay="0" style="background: #72994E; width: 235px; height: 145px; margin-top: 30px; position: absolute; right: 665px; border: 3px solid #57733D;"}
+:::
+
+::: {data-id="box2" style="background: #F2F2F2; width: 235px; height: 145px; margin-top: 30px; position: absolute; right: 400px; border: 3px solid #C2C2C4;"}
+:::
+
+::: {data-id="box3" style="background: #419599; width: 500px; height: 300px; margin-top: 200px; position: absolute; right: 400px; border: 3px solid #297075;"}
+:::
+:::
+
+:::
+
+## Layout - Advanced {auto-animate="true" auto-animate-easing="ease-in-out"}
+
+**sidebars**, **tabsets**, and **Pages**  allow for more advanced layouts.
+
+::: r-stack
+::: {data-id="box1" auto-animate-delay="0" style="background: #72994E; width: 235px; height: 145px; margin-top: 30px; position: absolute; right: 565px; border: 3px solid #57733D;"}
+:::
+
+::: {data-id="box2" style="background: #F2F2F2; width: 235px; height: 145px; margin-top: 30px; position: absolute; right: 300px; border: 3px solid #C2C2C4;"}
+:::
+
+::: {data-id="box3" style="background: #419599; width: 500px; height: 300px; margin-top: 200px; position: absolute; right: 300px; border: 3px solid #297075;"}
+:::
+
+::: {data-id="box4" auto-animate-delay="0" style="background: #DFB33E; width: 150px; height: 470px; margin-top: 30px; position: absolute; right: 820px; border: 3px solid #9a771a;"}
+:::
+:::
+
+## Dashboard Components
+
+1)  **Navigation Bar and Pages**   
+    --- Icon, title, and author along with links to sub-pages (if more than one page is defined).
+
+2)  **Sidebars, Rows & Columns, and Tabsets**  
+    --- Rows and columns using markdown heading (with optional attributes to control height, width, etc.). Sidebars for interactive inputs. Tabsets to further divide content.
+
+3)  **Cards (Plots, Tables, Value Boxes, Content)**  
+    --- Cards are containers for cell outputs and free form markdown text. The content of cards typically maps to *cells* in your notebook or source document.
+
+::: fragment
+*All of these components can be authored and customized within notebook UI or plain text qmd.*
+:::
+
+## Navigation Bar and Pages
+
+![](images\dashboards\olympics\navbar.png)
+
+::: {style="margin-top: 0.7em;"}
+``` {.python code-line-numbers="|2|5-6|7-8|11,13"}
+---
+title: "Olympic Games"
+format: 
+  dashboard:
+    nav-buttons: [github]
+    github: https://github.com/posit-conf-2024/olympicdash
+logo: images/olympics-logo.svg
+logo-alt: "Olympics logo with multicolored circles."
+---
+
+# 🌞 Summer Olympics
+
+# ❄️ Winter Olympics
+
+```
+:::
+
+##  {.no-line background-image="images\dashboards\olympics\nav-pages.gif" background-size="contain" footer=false}
+
+## Sidebars: Page Level {.component-slide}
+
+::: columns
+::: column
+```` {.python style="margin-top: 45px;" code-line-numbers="|8-12"}
+---
+title: "Sidebar"
+format: dashboard
+---
+    
+# Page 1
+
+## {.sidebar}
+
+```{{python}}
+```
+
+## Column 
+
+```{{python}}
+```
+
+```{{python}}
+```
+````
+:::
+
+::: {.column .fragment}
+![](images\dashboards\chart-input-sidebar.png)
+:::
+:::
+
+## Sidebars: Global {.compontent-slide}
+
+::: columns
+::: column
+```` {.python style="margin-top: 45px;" code-line-numbers="|6-9"}
+---
+title: "Global Sidebar"
+format: dashboard
+---
+    
+# {.sidebar}
+
+Sidebar content (e.g. inputs)
+
+# Plot
+
+```{{python}}
+```
+
+# Data
+
+```{{python}}
+```
+````
+:::
+
+::: {.column .fragment}
+![](images\dashboards\global-sidebar.png){width="80%"}
+:::
+:::
+
+## Layout: Rows {.component-slide}
+
+::: columns
+::: {.column style="margin-top: 65px;"}
+```` {.python .pymd}
+---
+title: "By Rows"
+format: dashboard
+---
+    
+## Row {height=70%}
+
+```{{python}}
+```
+
+## Row {height=30%}
+
+```{{python}}
+```
+
+```{{python}}
+```
+````
+
+::: {.callout-note appearance="simple"}
+`Row` for header content is used as example here.  
+Header name can be anything.
+:::
+
+:::
+
+::: {.column .fragment}
+![](images\dashboards\chart-focal-top.png){width="90%"}
+:::
+:::
+
+##  {.no-line background-image="images/dashboards/customer-churn.png" background-size="contain"}
+
+## Layout: Columns {.component-slide}
+
+::: columns
+::: {.column style="margin-top: 40px;"}
+```` {.python code-line-numbers="|5|8,13|8-19"}
+---
+title: "By Columns"
+format: 
+  dashboard:
+    orientation: columns
+---
+    
+## Column {width=60%}
+
+```{{python}}
+```
+
+## Column {width=40%}
+
+```{{python}}
+```
+
+```{{python}}
+```
+````
+:::
+
+::: {.column .fragment}
+![](images\dashboards\chart-focal-left.png)
+:::
+:::
+
+##  {.no-line background-image="images\dashboards\olympics\screenshot.png" background-size="contain"}
+
+## Cards
+
+Automatically created from cell's output or Markdown content
+
+````{.markdown code-line-numbers="1|3|6-7|20-42"}
+## Column - Medals by sport and year {width=65%}
+
+### Row - Medals by sport {height=60%}
+
+```{{python}}
+#| label: summer-medals-by-sport
+#| title: Medals by sport
+
+# Lump the sport column to top 15 categories, grouping others as Other
+top_15_sports = summer_olympics["sport"].value_counts().nlargest(15).index
+summer_olympics["sport"] = summer_olympics["sport"].apply(lambda x: x if x in top_15_sports else "Other")
+
+# Convert the sport column to a categorical type with order based on frequency, and reverse the order
+summer_olympics["sport"] = pd.Categorical(summer_olympics["sport"], categories = summer_olympics["sport"].value_counts().index[::-1])
+
+# Move the Other category of the sport column to the beginning
+new_order = ["Other"] + [cat for cat in summer_olympics["sport"].cat.categories if cat != "Other"]
+summer_olympics["sport"] = summer_olympics["sport"].cat.reorder_categories(new_order)
+
+# Plot
+(
+    ggplot(summer_olympics, aes(x = "sport", fill = "medal")) +
+    geom_bar() +
+    coord_flip() +
+    guides(fill = guide_legend(reverse = True)) +
+    scale_fill_manual(
+        values = {"Gold":"#d4af37", "Silver":"#c0c0c0", "Bronze":"#cd7f32"}
+    ) +  
+    labs(
+        x = "",
+        y = "",
+        fill = "Medal"
+    ) +
+    theme_minimal() +
+    theme(
+        legend_position = "inside",
+        legend_position_inside = (0.9, 0.2),
+        legend_direction = "horizontal",
+        legend_background = element_rect(fill = "white", color = "gray"),
+        figure_size = (11, 2)
+    )
+)
+```
+````
+
+## Cards
+
+Automatically created from cell's output or Markdown content
+
+![](images\dashboards\olympics\plot1.png){width="87%"}
+
+
+## Value Boxes {#value-box-component .component-slide}
+
+::: columns
+::: {.column width="45%"}
+```` {.python .pymd style="margin-top: 45px;" code-line-numbers="|3-9|14-17|"}
+## Row
+
+```{{python}}
+#| component: valuebox
+#| title: "Current Price"
+dict(icon = "currency-dollar",
+     color = "secondary",
+     value = get_price(data))
+```
+
+```{{python}}
+#| component: valuebox
+#| title: "Change"
+change = get_change(data)
+dict(value = change['amount'],
+     icon = change['icon'],
+     color = change['color']) 
+```
+````
+:::
+
+::: {.column width="55%"}
+![](images\dashboards\value-box-app.png){.border width="80%"}
+:::
+:::
+
+## Value Boxes
+
+::: columns
+
+::: column
+
+````{.markdown code-line-numbers="1-3|5-10|12-18|20-26"}
+## Column - Medals by country {width=35%}
+
+### Row - Value boxes {height=30%}
+
+::: {.valuebox icon="award-fill" color="#d4af37"}
+Most golds: 
+
+`{python} str(count_most_gold_medals)`
+
+`{python} most_gold_medals`
+:::
+
+::: {.valuebox icon="award-fill" color="#c0c0c0"}
+Most silvers: 
+
+`{python} str(count_most_silver_medals)`
+
+`{python} most_silver_medals`
+:::
+
+::: {.valuebox icon="award-fill" color="#cd7f32"}
+Most bronzes: 
+
+`{python} str(count_most_bronze_medals)`
+
+`{python} most_bronze_medals`
+:::
+````
+:::
+
+::: column
+![](images\dashboards\olympics\valueboxes.png)
+:::
+:::
+
+::: {.callout-tip .fragment appearance="simple"}
+
+`` `{python} str(count_most_gold_medals)` `` is an inline code syntax that is supported in Quarto to easily mix Markdown Text and computation output value.
+
+:::
+
+
+## Tabsets {.component-slide}
+
+::: columns
+::: {.column style="margin-top: 45px;"}
+```` {.python code-line-numbers="|11|14,18|11-19"}
+---
+title: "Palmer Penguins"
+format: dashboard
+---
+    
+## Row
+
+```{{python}}
+```
+
+## Row {.tabset}
+
+```{{python}}
+#| title: Chart 2
+```
+
+```{{python}}
+#| title: Chart 3
+```
+````
+:::
+
+::: {.column .fragment}
+![](images\chart-tabset-row.png){width="87%"}
+:::
+:::
+
+##  {.no-line background-image="images\dashboards\olympics\tabsets.gif" background-size="contain" footer=false}
+
+## Styling a Dashboard
+
+```{.yaml code-line-numbers="4,8-10"}
+---
+title: "Olympic Games"
+format: 
+  dashboard:
+    orientation: columns
+    nav-buttons: [github]
+    github: https://github.com/posit-conf-2024/olympicdash
+    theme:
+      - sketchy
+      - style/olympicdash.scss
+logo: images/olympics-logo.svg
+logo-alt: "Olympics logo with multicolored circles."
+---
+```
+
+::: {.columns}
+::: {.column .fragment}
+**Bootstrap & Bootswatch Themes**:<br>Quarto Dashboard is based on Bootstrap with +20 themes from [Bootswatch](https://bootswatch.com/) available
+:::
+::: {.column .fragment}
+**Customization through Quarto themes files**: Based on SASS, an easy way to declare new themes or variations to be layered into SCSS to be compiled to CSS
+:::
+:::
+
+::: fragment
+Details at <https://quarto.org/docs/dashboards/theming.html>
+:::
+
+
+
+
+## Learning More
+
+A lot more can be done with **Quarto Dashboard**: 
+
+* Deep dive at <https://quarto.org/docs/dashboards/>
+
+::: {.columns}
+::: {.column .fragment width="60%"}
+Advanced features: 
+
+- [Interactivity with shiny for python](https://quarto.org/docs/dashboards/interactivity/shiny-python/index.html)
+- [Variation of a Dashboard using Parameters](https://quarto.org/docs/dashboards/parameters.html)
+- [Easy Dashboard Deployment](https://quarto.org/docs/dashboards/deployment.html)
+:::
+::: {.column .fragment width="40%"}
+And about Quarto ?
+
+- [Getting started with Quarto](https://quarto.org/docs/get-started/)
+
+- [User guide](https://quarto.org/docs/guide/)
+
+- [Gallery of Examples](https://quarto.org/docs/gallery/)
+:::
+:::
+
+:::  {.fragment} 
+#### Questions?
+
+![](images/thank-you.gif){.absolute bottom="-50px" right="500px" height="200px"}
+:::
