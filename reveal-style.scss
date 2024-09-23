@@ -168,6 +168,11 @@ dl.code-annotation-container-grid {
   color: $perso-highlight-color;
 }
 
+img.in-text {
+  vertical-align: middle;
+  height: 1em;
+}
+
 section#diagrams {
   img {
     display: block;

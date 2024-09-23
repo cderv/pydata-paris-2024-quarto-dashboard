@@ -39,7 +39,7 @@ Christophe Dervieux
 
 {{< meta date >}}
 
-## What is Quarto?
+## What is ![](images\quarto.png){.in-text} ? 
 
 **An open-source, scientific and technical publishing system**
 
@@ -51,10 +51,10 @@ Christophe Dervieux
 
 - Various Output Formats 
 
-![[Artwork from "Hello, Quarto" keynote by Julia Lowndes and Mine Çetinkaya-Rundel, presented at RStudio Conference 2022. Illustrated by Allison Horst.]{.small-cap}](images/horst_quarto_schematic.png){fig-alt="A schematic representing the multi-language input (e.g. Python, R, Observable, Julia) and multi-format output (e.g. PDF, html, Word documents, and more) versatility of Quarto." fig-align="center"}
+![](images/horst_quarto_schematic.png){fig-alt="A schematic representing the multi-language input (e.g. Python, R, Observable, Julia) and multi-format output (e.g. PDF, html, Word documents, and more) versatility of Quarto." fig-align="center"}
 
-::: notes
-
+::: {.footer}
+[Artwork from "Hello, Quarto" keynote by Julia Lowndes and Mine Çetinkaya-Rundel, presented at RStudio Conference 2022. Illustrated by Allison Horst.]{.small-cap}
 :::
 
 ## With Quarto ...
