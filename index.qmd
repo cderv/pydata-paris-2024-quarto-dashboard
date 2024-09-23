@@ -766,5 +766,5 @@ And about Quarto ?
 :::
 
 :::  {.fragment} 
-![](images/thank-you.gif){.absolute left="30%" bottom="-120px" height="50%"}
+![](images/thank-you.gif){width="10%"}
 :::
