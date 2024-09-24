@@ -64,7 +64,7 @@ slides-full.pdf: index.html
 ifeq ($(OS),Windows_NT)
 		$(PWSH_CMD) "docker run --rm -t -v .:/slides astefanutti/decktape -s 1280x720 generic /slides/$< $@"
 else
-	docker run --rm -t -v .:/slides astefanutti/decktape -s 1280x720 generic /slides/$< $@
+		docker run --rm -t -v .:/slides astefanutti/decktape -s 1280x720 generic /slides/$< $@
 endif
 
 print-simple: slides-simple.pdf
@@ -73,7 +73,7 @@ slides-simple.pdf: index.html
 ifeq ($(OS),Windows_NT)
 		$(PWSH_CMD) "docker run --rm -t -v .:/slides astefanutti/decktape -s 1280x720 reveal /slides/$< $@"
 else
-	docker run --rm -t -v .:/slides astefanutti/decktape -s 1280x720 reveal /slides/$< $@
+		docker run --rm -t -v .:/slides astefanutti/decktape -s 1280x720 reveal /slides/$< $@
 endif
 
 print-screenshot: slides-screenshot.pdf
@@ -82,5 +82,5 @@ slides-screenshot.pdf: index.html
 ifeq ($(OS),Windows_NT)
 		$(PWSH_CMD) "docker run --rm -t -v .:/slides astefanutti/decktape -s 1280x720  --screenshots-size=1280x720 reveal /slides/$< $@"
 else
-	docker run --rm -t -v .:/slides astefanutti/decktape -s 1280x720 --screenshots-size=1280x720 reveal /slides/$< $@
+		docker run --rm -t -v .:/slides astefanutti/decktape -s 1280x720 --screenshots-size=1280x720 reveal /slides/$< $@
 endif
