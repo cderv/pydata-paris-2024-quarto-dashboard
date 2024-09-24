@@ -562,7 +562,7 @@ Automatically created from cell's output or Markdown content
 
 ::: columns
 ::: {.column width="45%"}
-```` {.python .pymd style="margin-top: 45px;" code-line-numbers="|3-9|14-17|"}
+```` {.python .pymd style="margin-top: 45px;" code-line-numbers="|3-9|11-18|"}
 ## Row
 
 ```{{python}}
