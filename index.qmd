@@ -499,7 +499,7 @@ format:
 :::
 :::
 
-##  {.no-line background-image="images\dashboards\olympics\screenshot.png" background-size="contain"}
+##  {.no-line background-image="images/dashboards/olympics/screenshot.png" background-size="contain"}
 
 ## Cards
 
