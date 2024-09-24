@@ -23,6 +23,10 @@ $presentation-font-size-root: 36px !default;
     #title-slide .title {
       line-height: unset;
     }
+
+    div.slide-number {
+      color: lighten($text-muted, 50%)
+    }
   
     section.slide {
 

@@ -8,7 +8,7 @@ format:
     theme: [default, reveal-style.scss]
     footer: Follow along at <https://cderv.github.io/pydata-paris-2024-quarto-dashboard/> and <https://quarto.org>
     code-line-numbers: false
-    slide-number: false
+    slide-number: true
     mermaid-format: png
     preview-links: auto
     multiplex: false
