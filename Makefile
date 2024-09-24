@@ -11,6 +11,8 @@ PREVIEW_CMD := $(QUARTO_CMD) preview
 PUBLISH_CMD := $(QUARTO_CMD) publish gh-pages
 PWSH_CMD := pwsh.exe -Command
 
+MAX_NB_SLIDES := 104
+
 # Define the target for rendering all the website
 all: render print
 
@@ -19,10 +21,13 @@ README.md: _README.qmd
 
 # Render the pre tutorial website
 
-render: index.html
+render: index.html index-for-print.html
 
 index.html: index.qmd
 		$(RENDER_CMD) $<
+
+index-for-print.html: index.qmd
+		$(RENDER_CMD) $< -M print:true --output $@
 
 preview:
 		$(PREVIEW_CMD)
@@ -60,11 +65,11 @@ endif
 
 print: slides-full.pdf
 
-slides-full.pdf: index.html
+slides-full.pdf: index-for-print.html
 ifeq ($(OS),Windows_NT)
-		$(PWSH_CMD) "docker run --rm -t -v .:/slides astefanutti/decktape -s 1280x720 generic /slides/$< $@"
+		$(PWSH_CMD) "docker run --rm -t -v .:/slides astefanutti/decktape -s 1280x720 generic --max-slides=$(MAX_NB_SLIDES) /slides/$< $@"
 else
-		docker run --rm -t -v .:/slides astefanutti/decktape -s 1280x720 generic /slides/$< $@
+		docker run --rm -t -v .:/slides astefanutti/decktape -s 1280x720 generic --max-slides=$(MAX_NB_SLIDES) /slides/$< $@
 endif
 
 print-simple: slides-simple.pdf
@@ -76,9 +81,18 @@ else
 		docker run --rm -t -v .:/slides astefanutti/decktape -s 1280x720 reveal /slides/$< $@
 endif
 
+print-auto: slides-auto.pdf
+
+slides-auto.pdf: index.html
+ifeq ($(OS),Windows_NT)
+		$(PWSH_CMD) "docker run --rm -t -v .:/slides astefanutti/decktape -s 1280x720 /slides/$< $@"
+else
+		docker run --rm -t -v .:/slides astefanutti/decktape -s 1280x720 reveal /slides/$< $@
+endif
+
 print-screenshot: slides-screenshot.pdf
 
-slides-screenshot.pdf: index.html
+slides-screenshot.pdf: index-for-print.html
 ifeq ($(OS),Windows_NT)
 		$(PWSH_CMD) "docker run --rm -t -v .:/slides astefanutti/decktape -s 1280x720  --screenshots-size=1280x720 reveal /slides/$< $@"
 else
