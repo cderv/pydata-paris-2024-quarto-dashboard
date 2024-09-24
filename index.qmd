@@ -765,6 +765,6 @@ And about Quarto ?
 :::
 :::
 
-::: {.fragment style="margin-top: 3em"}
-#### Thank you !
+:::  {.fragment} 
+![](images/thank-you_001.png){width="10%"}
 :::
