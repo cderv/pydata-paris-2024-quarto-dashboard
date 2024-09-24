@@ -593,7 +593,7 @@ dict(value = change['amount'],
 
 ::: columns
 
-::: column
+::: {.column width="60%"}
 
 ````{.markdown code-line-numbers="1-3|5-11|13-19|21-27"}
 ## Column - Medals by country {width=35%}
@@ -626,7 +626,7 @@ Most bronzes:
 ````
 :::
 
-::: column
+::: {.column width="40%"}
 ![](images\dashboards\olympics\valueboxes.png)
 :::
 :::
