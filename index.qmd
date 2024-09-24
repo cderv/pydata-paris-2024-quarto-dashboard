@@ -8,7 +8,7 @@ format:
     theme: [default, reveal-style.scss]
     footer: Follow along at <https://cderv.github.io/pydata-paris-2024-quarto-dashboard/> and <https://quarto.org>
     code-line-numbers: false
-    slide-number: true
+    slide-number: false
     mermaid-format: png
     preview-links: auto
     multiplex: false
@@ -364,7 +364,9 @@ logo-alt: "Olympics logo with multicolored circles."
 ```
 :::
 
+::: {.content-hidden when-meta="print"}
 ##  {.no-line background-image="images/dashboards/olympics/nav-pages.gif" background-size="contain" footer=false}
+:::
 
 ## Sidebars: Page Level {.component-slide}
 
@@ -499,7 +501,7 @@ format:
 :::
 :::
 
-##  {.no-line background-image="images/dashboards/olympics/screenshot.png" background-size="contain"}
+##  {.no-line background-image="images/dashboards/olympics/screenshot.png" background-size="contain" footer=false}
 
 ## Cards
 
@@ -670,7 +672,9 @@ format: dashboard
 :::
 :::
 
+::: {.content-hidden when-meta="print"}
 ##  {.no-line background-image="images/dashboards/olympics/tabsets.gif" background-size="contain" footer=false}
+:::
 
 ## Styling a Dashboard {footer=false}
 
