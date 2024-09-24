@@ -1,5 +1,5 @@
 
-# pyData Paris 2024 - Quarto Dashboard for impactful and visual communication
+# PyData Paris 2024 - Quarto Dashboard for impactful and visual communication
 
 <!-- badges: start -->
 <!-- badges: end -->
