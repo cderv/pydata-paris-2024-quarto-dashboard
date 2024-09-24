@@ -14,7 +14,7 @@ _The presentation is built using Quarto with `quarto render` and publish to GH p
 
 ## Thanks !! 
 
-This content is built thanks to existing content like presentations and workshops on Quarto, mostly created by @mine-cetinkaya-rundel! Thank you ! 
+This content is built thanks to existing content like presentations and workshops on Quarto, mostly created by [@mine-cetinkaya-rundel](https://github.com/mine-cetinkaya-rundel)! Thank you ! 
 
 - Pydata Global Talk : [slides](https://mine.quarto.pub/quarto-dashboards-pydata) - [Source](https://github.com/mine-cetinkaya-rundel/quarto-dashboards-pydata)
 - Olympic Dashboard Example: [Dashboard](https://mine.quarto.pub/olympic-games-py) - [Source](https://github.com/posit-conf-2024/olympicdash)
