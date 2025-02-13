@@ -10,6 +10,8 @@ This is the repository with the resources for the talk at useR 2024 about "Intro
 
 * Presentation: https://cderv.github.io/pydata-paris-2024-quarto-dashboard
 
+* Recording of the talk: https://www.youtube.com/watch?v=7Bw-Dg_xAos
+
 _The presentation is built using Quarto with `quarto render` and publish to GH pages using `quarto publish gh-pages`._
 
 ## Thanks !! 
