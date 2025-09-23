@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-This is the repository with the resources for the talk at useR 2024 about "Introduction to Quarto"
+This is the repository with the resources for the talk at PyData Paris 2024 about Quarto Dashboard
 
 * Talks page: https://pretalx.com/pydata-paris-2024/talk/XKGQXH/
 
